@@ -10,8 +10,8 @@ RUN \
         "http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz" \
         -o /opt/NzbDrone.tar.gz && \
  cd /opt && \
- tar zxvf NzbDrone.master.tar.gz && \
- rm NzbDrone.master.tar.gz && \
+ tar zxvf NzbDrone.tar.gz && \
+ rm NzbDrone.tar.gz && \
  cd NzbDrone && \
  echo "**** cleanup ****" && \
  apt-get autoremove -y && apt-get clean && \
