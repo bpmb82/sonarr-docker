@@ -22,7 +22,7 @@ RUN \
 
 WORKDIR /opt/NzbDrone
 COPY start.sh .
-COPY healtcheck.sh .
+COPY healthcheck.sh .
 RUN chmod +x *.sh
 
 EXPOSE 8989
