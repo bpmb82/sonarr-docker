@@ -29,6 +29,6 @@ EXPOSE 8989
 VOLUME /config
 
 HEALTHCHECK --interval=5m --timeout=5s \
-  CMD /opt/domoticz/healthcheck.sh
+  CMD /opt/NzbDrone/healthcheck.sh
 
 ENTRYPOINT ["/opt/NzbDrone/start.sh"]
