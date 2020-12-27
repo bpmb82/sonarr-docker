@@ -2,7 +2,7 @@
 
 # ***** SQLite backup sript *****
 
-APP=radarr
+APP=sonarr
 
 # Loop forever and sleep 24 hours after each backup
 
