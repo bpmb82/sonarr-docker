@@ -31,6 +31,7 @@ RUN \
 WORKDIR /app/sonarr/bin
 COPY start.sh .
 COPY healthcheck.sh .
+COPY backup.sh .
 RUN chmod +x *.sh
 
 EXPOSE 8989
