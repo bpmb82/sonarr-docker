@@ -13,7 +13,6 @@ Automatically grabs the API key to do a healthcheck
 ## docker-compose
 
 ```
-
 version: '3.3'
 
 services:
