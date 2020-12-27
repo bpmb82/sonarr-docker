@@ -6,13 +6,19 @@ RUN \
  apt-get install -y \
         jq xml-twig-tools && \
  echo "**** install sonarr ****" && \
- curl -L \
-        "http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz" \
-        -o /opt/NzbDrone.tar.gz && \
- cd /opt && \
- tar zxvf NzbDrone.tar.gz && \
- rm NzbDrone.tar.gz && \
- cd NzbDrone && \
+ mkdir -p /app/sonarr/bin && \
+  if [ -z ${SONARR_VERSION+x} ]; then \
+	SONARR_VERSION=$(curl -sX GET https://services.sonarr.tv/v1/download/${SONARR_BRANCH}?version=3 \
+	| jq -r '.version'); \
+ fi && \
+ curl -o \
+	/tmp/sonarr.tar.gz -L \
+	"https://download.sonarr.tv/v3/${SONARR_BRANCH}/${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux.tar.gz" && \
+ tar xf \
+	/tmp/sonarr.tar.gz -C \
+	/app/sonarr/bin --strip-components=1 && \
+ echo "UpdateMethod=docker\nBranch=${SONARR_BRANCH}\nPackageVersion=${VERSION}\nPackageAuthor=linuxserver.io" > /app/sonarr/package_info && \
+ rm -rf /app/sonarr/bin/Sonarr.Update && \
  echo "**** cleanup ****" && \
  apt-get autoremove -y && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
@@ -20,7 +26,7 @@ RUN \
         /tmp/* \
         /var/tmp/*
 
-WORKDIR /opt/NzbDrone
+WORKDIR /app/sonarr/bin
 COPY start.sh .
 COPY healthcheck.sh .
 RUN chmod +x *.sh
@@ -29,6 +35,6 @@ EXPOSE 8989
 VOLUME /config
 
 HEALTHCHECK --interval=5m --timeout=5s \
-  CMD /opt/NzbDrone/healthcheck.sh
+  CMD /app/sonarr/bin/healthcheck.sh
 
-ENTRYPOINT ["/opt/NzbDrone/start.sh"]
+ENTRYPOINT ["/app/sonarr/bin/start.sh"]
