@@ -6,9 +6,9 @@ Automatically grabs the API key to do a healthcheck
 
 ## Environment
 
-ENABLE_BACKUP=1
-
-Creates daily backups of the database to /backups which you can bind to a local mount
+| Environment variable | Description |
+| --- | --- |
+| `ENABLE_BACKUP` | Set to `1` to enable daily backups of the database. Last 30 days are kept. |
 
 ## docker-compose
 
