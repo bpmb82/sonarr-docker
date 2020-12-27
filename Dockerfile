@@ -23,10 +23,12 @@ RUN \
 WORKDIR /opt/NzbDrone
 COPY start.sh .
 COPY healthcheck.sh .
+COPY backup.sh .
 RUN chmod +x *.sh
 
 EXPOSE 8989
 VOLUME /config
+VOLUME /backups
 
 HEALTHCHECK --interval=5m --timeout=5s \
   CMD /opt/NzbDrone/healthcheck.sh
