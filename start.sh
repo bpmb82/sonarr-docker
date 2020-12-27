@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mono --debug /opt/NzbDrone/NzbDrone.exe -nobrowser -data=/config
+mono --debug /app/sonarr/bin/Sonarr.exe -nobrowser -data=/config
