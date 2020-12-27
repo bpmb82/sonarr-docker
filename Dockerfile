@@ -36,6 +36,7 @@ RUN chmod +x *.sh
 
 EXPOSE 8989
 VOLUME /config
+VOLUME /backups
 
 HEALTHCHECK --interval=5m --timeout=5s \
   CMD /app/sonarr/bin/healthcheck.sh
