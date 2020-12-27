@@ -32,9 +32,9 @@ else
   echo "$DATETIME SQLite Backup Script [Info] Backup made successfully.." >> /proc/1/fd/1
 fi
 
-# Keep last 90(!) backups
+# Keep last 30 backups
 
-if [ $NO_BACKUPS -gt 90 ]; then
+if [ $NO_BACKUPS -gt 30 ]; then
   REMOVEFILE=$(ls -t $DESTINATION | tail -1)
   rm -f $DESTINATION$REMOVEFILE
   echo "$DATETIME SQLite Backup Script [Info] Removed backups from more than 90 days ago.." >> /proc/1/fd/1
