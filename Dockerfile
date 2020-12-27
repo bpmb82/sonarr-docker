@@ -1,5 +1,7 @@
 FROM bpmbee/mono-base:latest
 
+ENV SONARR_BRANCH="phantom-develop"
+
 RUN \
  echo "**** install packages ****" && \
  apt-get update && \
