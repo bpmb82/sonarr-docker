@@ -37,7 +37,7 @@ fi
 if [ $NO_BACKUPS -gt 30 ]; then
   REMOVEFILE=$(ls -t $DESTINATION | tail -1)
   rm -f $DESTINATION$REMOVEFILE
-  echo "$DATETIME SQLite Backup Script [Info] Removed backups from more than 90 days ago.." >> /proc/1/fd/1
+  echo "$DATETIME SQLite Backup Script [Info] Removed backups from more than 30 days ago.." >> /proc/1/fd/1
 else
   echo "$DATETIME SQLite Backup Script [Info] We now have $NO_BACKUPS backups so nothing to remove!" >> /proc/1/fd/1
 fi
