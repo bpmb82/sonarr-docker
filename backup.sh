@@ -4,6 +4,12 @@
 
 APP=sonarr
 
+# Only start running if db file is found
+
+FILE=/config/$APP.db
+
+until test -f $FILE; do sleep 1; done
+
 # Loop forever and sleep 24 hours after each backup
 
 while true
