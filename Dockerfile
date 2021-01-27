@@ -30,7 +30,7 @@ EXPOSE 8989
 VOLUME /config
 VOLUME /backups
 
-HEALTHCHECK --interval=5m --timeout=5s \
+HEALTHCHECK --interval=90s --timeout=10s \
   CMD /opt/NzbDrone/healthcheck.sh
 
 ENTRYPOINT ["/opt/NzbDrone/start.sh"]
