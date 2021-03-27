@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $ENABLE_BACKUP = "1" ]; then
-  /opt/NzbDrone/backup.sh &
+  /app/sonarr/bin/backup.sh &
 fi
 
-mono --debug /opt/NzbDrone/NzbDrone.exe -nobrowser -data=/config
+mono --debug /app/sonarr/bin/Sonarr.exe -nobrowser -data=/config

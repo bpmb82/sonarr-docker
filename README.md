@@ -1,6 +1,6 @@
 # sonarr-docker
 
-Sonarr image, updated weekly, running the latest stable version of Sonarr. 
+Sonarr image, updated weekly, running the latest v3 version of Sonarr. 
 
 Automatically grabs the API key to do a healthcheck
 
