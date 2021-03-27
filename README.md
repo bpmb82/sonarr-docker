@@ -17,7 +17,6 @@ version: '3.3'
 
 services:
 
-
   sonarr:
     image: bpmbee/docker-sonarr:latest
     container_name: sonarr
