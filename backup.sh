@@ -4,6 +4,8 @@
 
 APP=sonarr
 
+sleep 1800
+
 # Only start running if db file is found
 
 FILE=/config/$APP.db
