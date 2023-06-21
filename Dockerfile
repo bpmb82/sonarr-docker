@@ -6,7 +6,7 @@ RUN \
  echo "**** install packages ****" && \
  apt-get update && \
  apt-get install -y \
-        jq xml-twig-tools curl libicu72 libsqlite3-0 && \
+        jq xml-twig-tools curl libicu72 sqlite3 && \
  echo "**** install sonarr ****" && \
  mkdir -p /app/sonarr && \
   if [ -z ${SONARR_URL+x} ]; then \

@@ -8,8 +8,6 @@ APP=sonarr
 
 FILE=/config/$APP.db
 
-sleep 100
-
 until test -f $FILE; do echo "SQLite Backup Script [Info] No database file detected yet, sleeping for 5 minutes.." >> /proc/1/fd/1 && sleep 300; done
 
 # Loop forever and sleep 24 hours after each backup
